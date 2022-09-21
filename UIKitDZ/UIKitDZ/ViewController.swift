@@ -8,7 +8,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-            
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Hello: "
@@ -36,15 +36,38 @@ final class ViewController: UIViewController {
         return label
     }()
     
-    var findNumberButton: UIButton = {
-        let button = UIButton()
+    private var hiddenNumber = 0
+    
+    let findNumberButton: UIButton = {
+        let button = UIButton(configuration: .filled())
+        button.setTitle("Find number", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.frame = CGRect(x: 20, y: 240, width: 100, height: 50)
+        return button
+    }()
+    
+    let findNumberTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Let's try to guess the number"
+        textField.frame = CGRect(x: 20, y: 320, width: 250, height: 40)
+        textField.isHidden = true
+        return textField
+    }()
+    
+    let tryButton: UIButton = {
+        let button =  UIButton(configuration: .filled())
+        button.setTitle("Try", for: .normal)
+        button.frame = CGRect(x: 20, y: 400, width: 100, height: 40)
+        button.isHidden = true
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - FIXMI найти правильное место
+        // MARK: - FIXMI найти правильное место для объявления target
         additionButton.addTarget(self, action: #selector(addition(paramTarget:)), for: .touchUpInside)
+        findNumberButton.addTarget(self, action: #selector(findNumber(paramTarget:)), for: .touchUpInside)
+        tryButton.addTarget(self, action: #selector(tryToFindNumber(paramTarget:)), for: .touchUpInside)
         setupUI()
     }
     
@@ -56,6 +79,9 @@ final class ViewController: UIViewController {
         view.addSubview(nameLabel)
         view.addSubview(additionButton)
         view.addSubview(resultLabel)
+        view.addSubview(findNumberButton)
+        view.addSubview(findNumberTextField)
+        view.addSubview(tryButton)
     }
     
     func alertIntro() {
@@ -83,5 +109,28 @@ final class ViewController: UIViewController {
         }
         additionAlertController.addAction(resultAlertAction)
         self.present(additionAlertController, animated: true)
+    }
+    
+    @objc func findNumber(paramTarget: UIButton) {
+        self.tryButton.isHidden = false
+        self.findNumberTextField.isHidden = false
+        self.findNumberTextField.text = ""
+        self.hiddenNumber = Int.random(in: 0...100)
+        print(hiddenNumber)
+    }
+    
+    @objc func tryToFindNumber(paramTarget: UIButton) {
+        guard let enteredNumber = Int(findNumberTextField.text ?? "") else { return }
+        switch enteredNumber {
+        case hiddenNumber:
+            findNumberTextField.text = "You win!!!"
+            findNumberTextField.isHidden = false
+            tryButton.isHidden = false
+        case ...hiddenNumber:
+            findNumberTextField.text = "More"
+        case hiddenNumber...:
+            findNumberTextField.text = "Less"
+        default: break
+        }
     }
 }
