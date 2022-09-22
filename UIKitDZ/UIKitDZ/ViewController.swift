@@ -9,30 +9,51 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    let reversedLabel: UILabel = {
+    private var model = ConvertStringModel()
+    
+    private lazy var reversedLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 40, y: 40, width: 200, height: 40)
+        label.text = "Convert string"
+        label.sizeToFit()
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
         return label
     }()
     
-    let startButton: UIButton = {
+    private lazy var startButton: UIButton = {
         let button = UIButton(configuration: .filled())
         button.setTitle("Begin", for: .normal)
+        button.sizeToFit()
+        button.addTarget(self, action: #selector(startGame(paramTarget:)), for: .touchUpInside)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI() {
+        view.addSubview(reversedLabel)
+        view.addSubview(startButton)
         startButton.center = view.center
-        startButton.addTarget(self, action: #selector(startGame(paramTarget:)), for: .touchUpInside)
+        reversedLabel.center = startButton.center
+        reversedLabel.center.y -= 40
     }
     
     @objc func startGame(paramTarget: UIButton) {
-        let getWordAlertController = UIAlertController(title: "New game", message: "Enter any word:", preferredStyle: .alert)
+        let getWordAlertController = UIAlertController(title: "New game",
+                                                       message: "Enter any word:",
+                                                       preferredStyle: .alert)
         getWordAlertController.addTextField()
-        let okAlertAction = UIAlertAction(title: "Ok", style: .default)
+        let okAlertAction = UIAlertAction(title: "Ok", style: .default) {_ in
+            self.model.originalString = getWordAlertController.textFields?.first?.text ?? ""
+            self.reversedLabel.text = self.model.convertedString
+            // Обработка layout reversedLabel после ввода нового текста
+            self.reversedLabel.sizeToFit()
+            self.reversedLabel.center.x = self.view.center.x
+        }
         getWordAlertController.addAction(okAlertAction)
+        self.present(getWordAlertController, animated: true)
     }
 }
