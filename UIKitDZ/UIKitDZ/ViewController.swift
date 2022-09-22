@@ -9,7 +9,7 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Hello: "
         label.textAlignment = .center
@@ -20,15 +20,17 @@ final class ViewController: UIViewController {
         return label
     }()
     
-    let additionButton: UIButton = {
+    private lazy var additionButton: UIButton = {
         let button = UIButton(configuration: .filled())
         button.setTitle("Addition", for: .normal)
         button.setTitle("pressed", for: .highlighted)
         button.frame = CGRect(x: 20, y: 160, width: 100, height: 40)
+        button.addTarget(ViewController.self, action: #selector(addition(paramTarget: )), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addition(paramTarget:)), for: .touchUpInside)
         return button
     }()
     
-    let resultLabel: UILabel = {
+    private lazy var resultLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.frame = CGRect(x: 140, y: 160, width: 100, height: 40)
@@ -38,15 +40,16 @@ final class ViewController: UIViewController {
     
     private var hiddenNumber = 0
     
-    let findNumberButton: UIButton = {
+    private lazy var findNumberButton: UIButton = {
         let button = UIButton(configuration: .filled())
         button.setTitle("Find number", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.frame = CGRect(x: 20, y: 240, width: 100, height: 50)
+        button.addTarget(self, action: #selector(findNumber(paramTarget:)), for: .touchUpInside)
         return button
     }()
     
-    let findNumberTextField: UITextField = {
+    private lazy var findNumberTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Let's try to guess the number"
         textField.frame = CGRect(x: 20, y: 320, width: 250, height: 40)
@@ -54,20 +57,17 @@ final class ViewController: UIViewController {
         return textField
     }()
     
-    let tryButton: UIButton = {
+    private lazy var tryButton: UIButton = {
         let button =  UIButton(configuration: .filled())
         button.setTitle("Try", for: .normal)
         button.frame = CGRect(x: 20, y: 400, width: 100, height: 40)
         button.isHidden = true
+        button.addTarget(self, action: #selector(tryToFindNumber(paramTarget:)), for: .touchUpInside)
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - FIXMI найти правильное место для объявления target
-        additionButton.addTarget(self, action: #selector(addition(paramTarget:)), for: .touchUpInside)
-        findNumberButton.addTarget(self, action: #selector(findNumber(paramTarget:)), for: .touchUpInside)
-        tryButton.addTarget(self, action: #selector(tryToFindNumber(paramTarget:)), for: .touchUpInside)
         setupUI()
     }
     
