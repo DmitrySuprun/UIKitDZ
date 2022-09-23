@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class FindNumberViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -25,8 +25,7 @@ final class ViewController: UIViewController {
         button.setTitle("Addition", for: .normal)
         button.setTitle("pressed", for: .highlighted)
         button.frame = CGRect(x: 20, y: 160, width: 100, height: 40)
-        button.addTarget(ViewController.self, action: #selector(addition(paramTarget: )), for: .touchUpInside)
-        button.addTarget(self, action: #selector(addition(paramTarget:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(additionAction(paramTarget:)), for: .touchUpInside)
         return button
     }()
     
@@ -45,7 +44,7 @@ final class ViewController: UIViewController {
         button.setTitle("Find number", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.frame = CGRect(x: 20, y: 240, width: 100, height: 50)
-        button.addTarget(self, action: #selector(findNumber(paramTarget:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(findNumberAction(paramTarget:)), for: .touchUpInside)
         return button
     }()
     
@@ -62,7 +61,7 @@ final class ViewController: UIViewController {
         button.setTitle("Try", for: .normal)
         button.frame = CGRect(x: 20, y: 400, width: 100, height: 40)
         button.isHidden = true
-        button.addTarget(self, action: #selector(tryToFindNumber(paramTarget:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tryToFindNumberAction(paramTarget:)), for: .touchUpInside)
         return button
     }()
     
@@ -72,6 +71,7 @@ final class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         alertIntro()
     }
     
@@ -96,30 +96,33 @@ final class ViewController: UIViewController {
         self.present(greetingAlertController, animated: true)
     }
     
-    @objc func addition(paramTarget: UIButton) {
+    @objc func additionAction(paramTarget: UIButton) {
         let additionAlertController = UIAlertController(title: "Addition",
                                                         message: "Enter two value",
                                                         preferredStyle: .alert)
+        
         additionAlertController.addTextField()
         additionAlertController.addTextField()
+        
         let resultAlertAction = UIAlertAction(title: "Result", style: .default) { _ in
-            guard let firstTerm = Int(additionAlertController.textFields?[0].text ?? "") else { return }
-            guard let secondTerm = Int(additionAlertController.textFields?[1].text ?? "") else { return }
-            self.resultLabel.text? = "Result: " + String(firstTerm + secondTerm)
+            guard let result = additionAlertController.textFields?.reduce(0, { $0 + (Int($1.text ?? "") ?? 0) })
+            else { return }
+            self.resultLabel.text = "Result: \(result)"
         }
+        
         additionAlertController.addAction(resultAlertAction)
         self.present(additionAlertController, animated: true)
     }
     
-    @objc func findNumber(paramTarget: UIButton) {
-        self.tryButton.isHidden = false
-        self.findNumberTextField.isHidden = false
-        self.findNumberTextField.text = ""
-        self.hiddenNumber = Int.random(in: 0...100)
+    @objc func findNumberAction(paramTarget: UIButton) {
+        tryButton.isHidden = false
+        findNumberTextField.isHidden = false
+        findNumberTextField.text = ""
+        hiddenNumber = Int.random(in: 0...100)
         print(hiddenNumber)
     }
     
-    @objc func tryToFindNumber(paramTarget: UIButton) {
+    @objc func tryToFindNumberAction(paramTarget: UIButton) {
         guard let enteredNumber = Int(findNumberTextField.text ?? "") else { return }
         switch enteredNumber {
         case hiddenNumber:
