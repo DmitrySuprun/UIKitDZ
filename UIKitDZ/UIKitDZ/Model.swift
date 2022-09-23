@@ -7,7 +7,7 @@
 
 import Foundation
 /// ConvertStringModel
-struct ConvertStringModel {
+struct ConvertString {
     var originalString = ""
     var convertedString: String {
         String(originalString.reversed())

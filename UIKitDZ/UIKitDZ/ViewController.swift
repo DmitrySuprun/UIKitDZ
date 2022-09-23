@@ -9,7 +9,7 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    private var model = ConvertStringModel()
+    private var convertString = ConvertString()
     
     private lazy var reversedLabel: UILabel = {
         let label = UILabel()
@@ -47,13 +47,12 @@ final class ViewController: UIViewController {
                                                        preferredStyle: .alert)
         getWordAlertController.addTextField()
         let okAlertAction = UIAlertAction(title: "Ok", style: .default) {_ in
-            self.model.originalString = getWordAlertController.textFields?.first?.text ?? ""
-            self.reversedLabel.text = self.model.convertedString
-            // Обработка layout reversedLabel после ввода нового текста
+            self.convertString.originalString = getWordAlertController.textFields?.first?.text ?? ""
+            self.reversedLabel.text = self.convertString.convertedString
             self.reversedLabel.sizeToFit()
             self.reversedLabel.center.x = self.view.center.x
         }
         getWordAlertController.addAction(okAlertAction)
-        self.present(getWordAlertController, animated: true)
+        present(getWordAlertController, animated: true)
     }
 }
