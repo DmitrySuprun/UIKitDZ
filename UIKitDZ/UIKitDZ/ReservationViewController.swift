@@ -6,14 +6,14 @@
 //
 
 import UIKit
-/// Controller for make reservation
+/// Контроллер для создания брони
 final class ReservationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func createCheck(_ sender: Any) {
+    @IBAction func createCheckAction(_ sender: Any) {
         let  confirmAlertController = UIAlertController(
             title: "Счет",
             message: "Выставить счет?",
@@ -29,7 +29,7 @@ final class ReservationViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         confirmAlertController.addAction(okAction)
         confirmAlertController.addAction(cancelAction)
-        self.present(confirmAlertController, animated: true)
+        present(confirmAlertController, animated: true)
 
     }
 }

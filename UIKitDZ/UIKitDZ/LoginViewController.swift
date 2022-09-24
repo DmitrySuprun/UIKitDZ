@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// Check Login/Password controller
 final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
