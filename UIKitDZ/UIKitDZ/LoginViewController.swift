@@ -81,8 +81,10 @@ final class LoginViewController: UIViewController {
     }
     
     @objc func verifyPasswordAction(_ sender: UIButton) {
-        guard loginTextField.text == "111" && passwordTextField.text == "111" && !faceIDSwitch.isOn
-        else { return }
+//        guard loginTextField.text == "111" && passwordTextField.text == "111" && !faceIDSwitch.isOn
+//        else { return }
+        let birthdayListViewController = BirthdayListViewController()
+        self.navigationController?.pushViewController(birthdayListViewController, animated: true)
     }
     
     func setupUI() {
