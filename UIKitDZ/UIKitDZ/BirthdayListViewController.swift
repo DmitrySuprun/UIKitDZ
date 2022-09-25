@@ -76,6 +76,7 @@ final class BirthdayListViewController: UIViewController {
     
     @objc func pushNextViewControllerAction(_ sender: UIBarButtonItem) {
         let addingUserViewController = AddingUserViewController()
+        navigationController?.modalPresentationStyle = .popover
         navigationController?.pushViewController(addingUserViewController, animated: true)
         
     }
