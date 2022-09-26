@@ -61,6 +61,12 @@ final class PlayerViewController: UIViewController {
         player.currentTime = TimeInterval(trackSlider.value)
     }
     
+    @IBAction func activityAction(_ sender: Any) {
+        let items = ["This app is my favorite"]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
     // MARK: - PrivateMethod
     private func updateTrackUI() {
         trackSlider.value = Float(player.currentTime)
