@@ -7,9 +7,8 @@
 
 import Foundation
 
-/// Product data
+/// Product description
 struct Product {
     var name: String
     var images: [String]
-    var count = 0
 }
