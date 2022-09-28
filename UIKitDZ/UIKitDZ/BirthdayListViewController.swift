@@ -9,7 +9,7 @@ import UIKit
 /// Display list with birthday information
 final class BirthdayListViewController: UIViewController {
     
-    var userInfo: [UserInfo]!
+    var userInfo: [UserInfo]?
     
     private lazy var contentUserInfoView = {
         let view = UIView()
@@ -42,7 +42,6 @@ final class BirthdayListViewController: UIViewController {
     }
     
     private func setupUI() {
-        
         title = "Birthday"
         view.backgroundColor = .white
         
@@ -76,14 +75,7 @@ final class BirthdayListViewController: UIViewController {
     
     @objc func pushNextViewControllerAction(_ sender: UIBarButtonItem) {
         let addingUserViewController = AddingUserViewController()
-        navigationController?.modalPresentationStyle = .popover
-        navigationController?.pushViewController(addingUserViewController, animated: true)
-        
+        addingUserViewController.modalPresentationStyle = .formSheet
+        navigationController?.present(addingUserViewController, animated: true)
     }
-    
-    //    private func updateInfo() {
-    //        for item in userInfo {
-    //
-    //        }
-    //    }
 }

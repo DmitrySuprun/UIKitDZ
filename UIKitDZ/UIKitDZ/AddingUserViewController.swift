@@ -104,6 +104,20 @@ final class AddingUserViewController: UIViewController {
         return toolBar
     }()
     
+    private lazy var cancelButton = {
+        let button = UIButton(configuration: .borderless())
+        button.setTitle("Cancel", for: .normal)
+        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var plusButton = {
+        let button = UIButton(configuration: .borderless())
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var datePicker = {
         let picker = UIDatePicker()
         picker.preferredDatePickerStyle = .wheels
@@ -117,25 +131,13 @@ final class AddingUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        agePicker.dataSource = self
-        agePicker.delegate = self
-        agePicker.tag = 1
-        sexPicker.dataSource = self
-        sexPicker.delegate = self
-        sexPicker.tag = 2
     }
     
     func setupUI() {
         
-        view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel",
-                                                           style: .plain,
-                                                           target: self,
-                                                           action: #selector(backAction(_:)))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-                                                            target: self,
-                                                            action: #selector(backAction(_:)))
+        setupPicker()
         
+        view.backgroundColor = .white
         view.addSubview(logoImageView)
         logoImageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         logoImageView.center = view.center
@@ -181,6 +183,21 @@ final class AddingUserViewController: UIViewController {
         view.addSubview(instagramTextField)
         instagramTextField.frame = CGRect(x: 20, y: 660, width: 300, height: 30)
         instagramTextField.addUnderLine()
+        
+        view.addSubview(cancelButton)
+        cancelButton.frame = CGRect(x: 0, y: 10, width: 85, height: 25)
+        
+        view.addSubview(plusButton)
+        plusButton.frame = CGRect(x: 360, y: 15, width: 15, height: 15)
+    }
+    
+    func setupPicker() {
+        agePicker.dataSource = self
+        agePicker.delegate = self
+        agePicker.tag = 1
+        sexPicker.dataSource = self
+        sexPicker.delegate = self
+        sexPicker.tag = 2
     }
     
     @objc func toolbarDoneAction() {
@@ -192,12 +209,8 @@ final class AddingUserViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func backAction(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    @objc func fillAgeTextField(_ sender: UITextView) {
-        
+    @objc func backAction() {
+        dismiss(animated: true)
     }
     
     @objc func fillInstagramTextFieldAction(_ sender: UILabel) {
@@ -223,6 +236,7 @@ extension AddingUserViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
         switch pickerView.tag {
         case 1: return 100
         case 2: return 2
@@ -234,6 +248,7 @@ extension AddingUserViewController: UIPickerViewDataSource {
 extension AddingUserViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         switch pickerView.tag {
         case 1: return "\(row)"
         case 2: return sex[row]
