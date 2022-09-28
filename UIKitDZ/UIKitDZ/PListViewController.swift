@@ -16,9 +16,12 @@ final class PListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let viewController = segue.destination as? PlayerViewController else { return }
         switch segue.identifier {
-        case "peremenID": viewController.startWithTrack = (song: "Peremen", albumImage: "LastHero")
-        case "windOfChangeID": viewController.startWithTrack = (song: "WindOfChange", albumImage: "CrazyWord")
-        default: return
+        case "peremenID":
+            viewController.startWithTrack = (song: "Peremen", albumImage: "LastHero")
+        case "windOfChangeID":
+            viewController.startWithTrack = (song: "WindOfChange", albumImage: "CrazyWord")
+        default:
+            return
         }
     }
 }

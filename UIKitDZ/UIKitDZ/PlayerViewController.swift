@@ -18,28 +18,22 @@ final class PlayerViewController: UIViewController {
     @IBOutlet weak var timeToEndLabel: UILabel!
     
     // MARK: - PublicProperties
-    var startWithTrack: (song: String, albumImage: String)!
+    var startWithTrack: (song: String, albumImage: String)?
+    var currentTrack = 0
     
     // MARK: - PrivateProperties
+    let activity = UIActivity()
     private var player = AVAudioPlayer()
     private let media = [(song: "Peremen", albumImage: "LastHero"), (song: "WindOfChange", albumImage: "CrazyWord")]
     
     // MARK: - ViewControllers
     override func viewDidLoad() {
         super.viewDidLoad()
-        playTrack(track: startWithTrack.song, image: startWithTrack.albumImage)
-        var timerTrack = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
-            self.trackSlider.value = Float(self.player.currentTime)
-            self.timeFromBeginLabel.text = self.player.currentTime.formatted()
-            self.timeToEndLabel.text = (self.player.duration - self.player.currentTime).formatted()
-        })
+        startPlayer()
     }
     // MARK: - PublicMethod
     
     // MARK: - IBAction
-    @IBAction func backwardButton(_ sender: Any) {
-        // FIXME: add backward
-    }
     
     @IBAction func playButtonAction(_ sender: Any) {
         switch player.isPlaying {
@@ -53,8 +47,11 @@ final class PlayerViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func forwardButton(_ sender: Any) {
-        playTrack(track: media[1].song, image: media[1].albumImage)
+    @IBAction func forwardButtonAction(_ sender: Any) {
+        if currentTrack < media.count - 1 {
+            currentTrack += 1
+            playTrack(track: media[currentTrack].song, image: media[currentTrack].albumImage)
+        }
     }
     
     @IBAction func trackSliderAction(_ sender: Any) {
@@ -63,11 +60,23 @@ final class PlayerViewController: UIViewController {
     
     @IBAction func activityAction(_ sender: Any) {
         let items = ["This app is my favorite"]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(ac, animated: true)
+        let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(activityController, animated: true)
     }
     
     // MARK: - PrivateMethod
+    
+    private func startPlayer() {
+        if let startWithTrack {
+            playTrack(track: startWithTrack.song, image: startWithTrack.albumImage)
+        }
+        _ = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+            self.trackSlider.value = Float(self.player.currentTime)
+            self.timeFromBeginLabel.text = self.player.currentTime.formatted()
+            self.timeToEndLabel.text = (self.player.duration - self.player.currentTime).formatted()
+        })
+    }
+    
     private func updateTrackUI() {
         trackSlider.value = Float(player.currentTime)
     }
@@ -83,7 +92,4 @@ final class PlayerViewController: UIViewController {
         }
         trackImageView.image = UIImage(named: image)
     }
-    
-    // MARK: - Constant
-    let activity = UIActivity()
 }
