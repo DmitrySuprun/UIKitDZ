@@ -56,12 +56,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-D3-uJ3">
+                                <rect key="frame" x="123.66666666666669" y="404.66666666666669" width="143" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FaceBookShare"/>
+                                <connections>
+                                    <action selector="shareFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J1R-mG-feI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TfZ-hq-9b7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="108" id="40G-gy-VO7"/>
                             <constraint firstItem="NaW-s8-RIH" firstAttribute="width" secondItem="Pzn-Bw-SAS" secondAttribute="width" id="51C-fa-tUn"/>
+                            <constraint firstItem="IKn-D3-uJ3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6CT-Rg-i3A"/>
                             <constraint firstItem="Pzn-Bw-SAS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="BYB-QA-RpW"/>
                             <constraint firstItem="fql-iJ-DuG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="D4r-vc-ErK"/>
                             <constraint firstItem="TfZ-hq-9b7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E91-kM-SOu"/>
@@ -74,6 +83,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pzn-Bw-SAS" secondAttribute="trailing" constant="135" id="aB1-Oy-9GS"/>
                             <constraint firstItem="1QH-KT-dad" firstAttribute="top" secondItem="TfZ-hq-9b7" secondAttribute="bottom" constant="35" id="dIk-cv-jHn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fql-iJ-DuG" secondAttribute="bottom" constant="129" id="fBF-SA-7Cu"/>
+                            <constraint firstItem="IKn-D3-uJ3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g7g-bG-PCA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fql-iJ-DuG" secondAttribute="trailing" constant="118.33333333333337" id="kuh-rJ-EjQ"/>
                             <constraint firstItem="4AE-I1-Nwi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="69" id="o9v-gT-2mW"/>
                             <constraint firstItem="fql-iJ-DuG" firstAttribute="top" secondItem="4AE-I1-Nwi" secondAttribute="bottom" constant="44" id="shO-WG-u3v"/>

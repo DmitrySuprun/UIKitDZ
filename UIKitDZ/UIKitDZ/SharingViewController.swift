@@ -16,7 +16,7 @@ final class SharingViewController: UIViewController {
     @IBOutlet weak var shareTextField: UITextField!
     
     // MARK: - Private properties
-    
+    private let facebook = FacebookShare()
     private lazy var sharePicker = {
         let picker = UIPickerView()
         return picker
@@ -34,6 +34,10 @@ final class SharingViewController: UIViewController {
     }
     
     // MARK: - IBAction
+    
+    @IBAction func shareFacebook(_ sender: Any) {
+        shareAction(activityItems: [facebook])
+    }
     
     @IBAction func shareURLAction(_ sender: Any) {
         guard let share = urlLabel.text else { return }
@@ -90,5 +94,25 @@ extension SharingViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         5
+    }
+}
+
+/// FacebookShare
+class FacebookShare: NSObject, UIActivityItemSource {
+    
+    var placeholder = "New post"
+    var newsForFacebook = "For Facebook"
+    var url = ""
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        placeholder
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController,
+                                itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        if activityType == .postToFacebook {
+            return newsForFacebook
+        }
+        return nil
     }
 }
