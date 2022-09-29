@@ -23,7 +23,6 @@ final class ProductInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Product Info"
         setupUI()
     }
 }
@@ -33,6 +32,7 @@ final class ProductInfoViewController: UIViewController {
 extension ProductInfoViewController {
     
     private func setupUI() {
+        title = "Product Info"
         view.backgroundColor = .white
         addView()
         productImage.center = view.center
@@ -48,14 +48,12 @@ extension ProductInfoViewController {
         view.addSubview(buyButton)
     }
     
-    // MARK: - Public Methods
-    
     @objc private func chooseColorAction(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         productImage.image = UIImage(named: product?.images[index] ?? "")
     }
     
-    @objc func makeOrderAction() {
+    @objc private func makeOrderAction() {
         let nextViewController = OrderViewController()
         nextViewController.product = product
         nextViewController.currentColor = colorSegmentControl.selectedSegmentIndex
