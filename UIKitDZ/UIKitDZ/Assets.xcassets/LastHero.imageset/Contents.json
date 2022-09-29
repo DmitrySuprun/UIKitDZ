@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "274px-Кино._1989._Последний_герой.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}
