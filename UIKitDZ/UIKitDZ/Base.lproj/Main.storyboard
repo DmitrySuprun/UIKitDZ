@@ -1,24 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sharing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SharingViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4AE-I1-Nwi">
+                                <rect key="frame" x="69" y="568" width="253" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://www.apple.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfZ-hq-9b7">
+                                <rect key="frame" x="108" y="47" width="175" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QH-KT-dad">
+                                <rect key="frame" x="142.66666666666666" y="103" width="105" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Share URL"/>
+                                <connections>
+                                    <action selector="shareURLAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvl-oF-Zob"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzn-Bw-SAS">
+                                <rect key="frame" x="136" y="175" width="119" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Share Image"/>
+                                <connections>
+                                    <action selector="shareImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iim-3m-fMH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fql-iJ-DuG">
+                                <rect key="frame" x="134" y="646" width="137.66666666666663" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Share textField"/>
+                                <connections>
+                                    <action selector="shareTextField:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nXc-CE-RQs"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Picker input" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NaW-s8-RIH">
+                                <rect key="frame" x="135.66666666666666" y="273" width="119" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-D3-uJ3">
+                                <rect key="frame" x="123.66666666666669" y="404.66666666666669" width="143" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FaceBookShare"/>
+                                <connections>
+                                    <action selector="shareFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J1R-mG-feI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TfZ-hq-9b7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="108" id="40G-gy-VO7"/>
+                            <constraint firstItem="NaW-s8-RIH" firstAttribute="width" secondItem="Pzn-Bw-SAS" secondAttribute="width" id="51C-fa-tUn"/>
+                            <constraint firstItem="IKn-D3-uJ3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6CT-Rg-i3A"/>
+                            <constraint firstItem="Pzn-Bw-SAS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="BYB-QA-RpW"/>
+                            <constraint firstItem="fql-iJ-DuG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="D4r-vc-ErK"/>
+                            <constraint firstItem="TfZ-hq-9b7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E91-kM-SOu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TfZ-hq-9b7" secondAttribute="trailing" constant="107" id="EDW-tp-Vi0"/>
+                            <constraint firstItem="NaW-s8-RIH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Krm-dJ-N7O"/>
+                            <constraint firstItem="NaW-s8-RIH" firstAttribute="top" secondItem="Pzn-Bw-SAS" secondAttribute="bottom" constant="63" id="O34-xj-3Uj"/>
+                            <constraint firstItem="Pzn-Bw-SAS" firstAttribute="top" secondItem="1QH-KT-dad" secondAttribute="bottom" constant="37" id="Q0M-I8-UHt"/>
+                            <constraint firstItem="1QH-KT-dad" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RhH-e4-FBb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4AE-I1-Nwi" secondAttribute="trailing" constant="68" id="Tkv-So-s3v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pzn-Bw-SAS" secondAttribute="trailing" constant="135" id="aB1-Oy-9GS"/>
+                            <constraint firstItem="1QH-KT-dad" firstAttribute="top" secondItem="TfZ-hq-9b7" secondAttribute="bottom" constant="35" id="dIk-cv-jHn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fql-iJ-DuG" secondAttribute="bottom" constant="129" id="fBF-SA-7Cu"/>
+                            <constraint firstItem="IKn-D3-uJ3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g7g-bG-PCA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fql-iJ-DuG" secondAttribute="trailing" constant="118.33333333333337" id="kuh-rJ-EjQ"/>
+                            <constraint firstItem="4AE-I1-Nwi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="69" id="o9v-gT-2mW"/>
+                            <constraint firstItem="fql-iJ-DuG" firstAttribute="top" secondItem="4AE-I1-Nwi" secondAttribute="bottom" constant="44" id="shO-WG-u3v"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerInputTextField" destination="NaW-s8-RIH" id="KM0-me-QZj"/>
+                        <outlet property="shareTextField" destination="4AE-I1-Nwi" id="Xww-JB-dZ8"/>
+                        <outlet property="urlLabel" destination="TfZ-hq-9b7" id="Vms-CF-Np6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="121.53846153846153" y="-2.1327014218009479"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
