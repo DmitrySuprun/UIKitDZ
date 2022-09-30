@@ -94,6 +94,7 @@ class IngredientsViewController: UIViewController, PopToRootDelegate {
         viewController.pizza = pizza
         viewController.delegate = self
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalTransitionStyle = .flipHorizontal
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
     }

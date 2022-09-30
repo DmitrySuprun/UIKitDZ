@@ -14,6 +14,7 @@ final class FoodViewController: UIViewController {
     
     private lazy var pizzaButton = makeButton(title: "Pizza", yCoordinate: 166)
     private lazy var foodButton = makeButton(title: "Food", yCoordinate: 371)
+    private lazy var slotMachineButton = makeButton(title: "Try to win free pizza", yCoordinate: 600)
     
     // MARK: - Lifecycle
 
@@ -34,6 +35,12 @@ final class FoodViewController: UIViewController {
     private func addView() {
         view.addSubview(pizzaButton)
         view.addSubview(foodButton)
+        view.addSubview(slotMachineButton)
+        setupSlotMachineButton()
+    }
+    
+    private func setupSlotMachineButton() {
+        slotMachineButton.addTarget(self, action: #selector(slotMachineAction), for: .touchUpInside)
     }
     
     private func addAction() {
@@ -42,6 +49,11 @@ final class FoodViewController: UIViewController {
     
     @objc private func choosingListAction() {
         let nextViewController = PizzaSelectionViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc private func slotMachineAction() {
+        let nextViewController = SlotMachineViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

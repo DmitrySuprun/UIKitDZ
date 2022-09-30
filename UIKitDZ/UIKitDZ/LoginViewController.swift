@@ -60,6 +60,7 @@ final class LoginViewController: UIViewController {
     @objc private func loginAction() {
         let nextViewController = FoodViewController()
         let navigationViewController = UINavigationController(rootViewController: nextViewController)
+        navigationViewController.modalTransitionStyle = .flipHorizontal
         navigationViewController.modalPresentationStyle = .fullScreen
         present(navigationViewController, animated: true)
     }

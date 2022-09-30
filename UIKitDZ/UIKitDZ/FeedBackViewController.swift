@@ -11,6 +11,16 @@ class FeedBackViewController: UIViewController {
     
     // Private Properties
     
+    private lazy var ratingLabel = {
+        let label = UILabel()
+        label.text = "Rating:"
+        label.textAlignment = .center
+        label.textColor = .orange
+        label.font = label.font?.withSize(80)
+        label.frame = CGRect(x: 0, y: 0, width: 350, height: 100)
+        return label
+    }()
+    
     private lazy var feedBackSlider = {
         let slider = UISlider()
         slider.frame = CGRect(x: 20, y: 510, width: 370, height: 25)
@@ -42,6 +52,9 @@ class FeedBackViewController: UIViewController {
         view.addSubview(feedBackSlider)
         view.addSubview(feedBackTextField)
         feedBackTextField.center = view.center
+        view.addSubview(ratingLabel)
+        ratingLabel.center = view.center
+        ratingLabel.center.y -= 200
     }
     
     @objc private func sliderStepAction(_ sender: UISlider) {
