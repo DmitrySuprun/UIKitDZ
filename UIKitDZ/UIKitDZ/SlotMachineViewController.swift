@@ -6,8 +6,10 @@
 //
 
 import UIKit
-/// Try to win free pizza
+/// SlotMachine for trying to win free pizza
 class SlotMachineViewController: UIViewController {
+    
+    // MARK: - Private Properties
     
     private var winNumber = 0
     
@@ -16,13 +18,25 @@ class SlotMachineViewController: UIViewController {
         return picker
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupUI() {
         view.backgroundColor = .orange
+        view.addSubview(slotPicker)
+        setupSlotPicker()
+    }
+    
+    private func setupSlotPicker() {
+        slotPicker.center = view.center
         slotPicker.delegate = self
         slotPicker.dataSource = self
-        view.addSubview(slotPicker)
-        slotPicker.center = view.center
     }
     
     private func checkNumber() {
@@ -31,6 +45,8 @@ class SlotMachineViewController: UIViewController {
         }
     }
 }
+
+// MARK: - UIPickerViewDelegate
 
 extension SlotMachineViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -44,6 +60,8 @@ extension SlotMachineViewController: UIPickerViewDelegate {
     }
     
 }
+
+// MARK: - UIPickerViewDataSource
 
 extension SlotMachineViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

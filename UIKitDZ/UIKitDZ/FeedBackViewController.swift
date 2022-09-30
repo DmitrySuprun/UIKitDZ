@@ -9,7 +9,7 @@ import UIKit
 /// Feedback
 class FeedBackViewController: UIViewController {
     
-    // Private Properties
+    // MARK: - Private Properties
     
     private lazy var ratingLabel = {
         let label = UILabel()
@@ -40,12 +40,14 @@ class FeedBackViewController: UIViewController {
         return textField
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    // Private Methods
+    // MARK: - Private Methods
     
     private func setupUI() {
         view.backgroundColor = .white
