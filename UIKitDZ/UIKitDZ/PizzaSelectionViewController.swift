@@ -12,8 +12,8 @@ final class PizzaSelectionViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    var pizza: [Pizza] = [Pizza(name: "Margarita", image: "Margarita"),
-                          Pizza(name: "Pepperoni", image: "Pepperoni")]
+    var pizza: [Pizza] = [Pizza(name: "Margarita", imageName: "Margarita"),
+                          Pizza(name: "Pepperoni", imageName: "Pepperoni")]
     
     // MARK: - Private Properties
     
@@ -59,8 +59,8 @@ final class PizzaSelectionViewController: UIViewController {
     }
     
     private func setupImage() {
-        margaritaImageView.image = UIImage(named: pizza[0].image)
-        pepperoniImageView.image = UIImage(named: pizza[1].image)
+        margaritaImageView.image = UIImage(named: pizza[0].imageName)
+        pepperoniImageView.image = UIImage(named: pizza[1].imageName)
         
     }
     

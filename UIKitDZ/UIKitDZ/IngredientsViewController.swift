@@ -13,7 +13,7 @@ protocol PopToRootDelegate: AnyObject {
 }
 
 /// Choice of additional ingredients
-class IngredientsViewController: UIViewController, PopToRootDelegate {
+final class IngredientsViewController: UIViewController {
     
     // MARK: - Public Properties
     
@@ -39,16 +39,6 @@ class IngredientsViewController: UIViewController, PopToRootDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-    }
-    
-    // MARK: - Public Methods
-    
-    func popRoot() {
-        self.view.isHidden = true
-        dismiss(animated: false)
-        if let presentingRootViewController = presentingViewController as? UINavigationController {
-            presentingRootViewController.popToRootViewController(animated: false)
-        }
     }
     
     // MARK: - Private Methods
@@ -125,7 +115,7 @@ private extension IngredientsViewController {
     
     func makeImageView() -> UIImageView {
         let imageView = UIImageView()
-        let image = UIImage(named: pizza?.image ?? "")
+        let image = UIImage(named: pizza?.imageName ?? "")
         imageView.image = image
         imageView.frame = CGRect(x: 64, y: 103, width: 262, height: 262)
         imageView.backgroundColor = .systemGray6
@@ -146,5 +136,16 @@ private extension IngredientsViewController {
         button.addTarget(self, action: #selector(caloriesAction), for: .touchUpInside)
         button.frame = CGRect(x: 324, y: 20, width: 40, height: 40)
         return button
+    }
+}
+
+// MARK: - PopToRootDelegate
+extension IngredientsViewController: PopToRootDelegate {
+    func popRoot() {
+        self.view.isHidden = true
+        dismiss(animated: false)
+        if let presentingRootViewController = presentingViewController as? UINavigationController {
+            presentingRootViewController.popToRootViewController(animated: false)
+        }
     }
 }

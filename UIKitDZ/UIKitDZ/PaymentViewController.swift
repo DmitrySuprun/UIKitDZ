@@ -8,7 +8,7 @@
 import UIKit
 
 /// Choosing a payment method
-class PaymentViewController: UIViewController {
+final class PaymentViewController: UIViewController {
     
     // MARK: - Public Properties
     

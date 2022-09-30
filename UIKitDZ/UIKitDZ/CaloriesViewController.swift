@@ -12,7 +12,7 @@ final class CaloriesViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var caloriesImage = {
+    private lazy var caloriesImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "Calories")
         imageView.image = image
@@ -20,7 +20,7 @@ final class CaloriesViewController: UIViewController {
         return imageView
     }()
     
-    // MARK: - Lyfecycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,8 @@ final class CaloriesViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(caloriesImage)
-        caloriesImage.center = view.center
-        caloriesImage.contentMode = .scaleAspectFit
+        view.addSubview(caloriesImageView)
+        caloriesImageView.center = view.center
+        caloriesImageView.contentMode = .scaleAspectFit
     }
 }

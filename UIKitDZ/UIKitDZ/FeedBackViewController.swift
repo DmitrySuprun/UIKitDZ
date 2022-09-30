@@ -7,7 +7,7 @@
 
 import UIKit
 /// Feedback
-class FeedBackViewController: UIViewController {
+final class FeedBackViewController: UIViewController {
     
     // MARK: - Private Properties
     

@@ -10,7 +10,7 @@ import Foundation
 /// Pizza description
 struct Pizza {
     var name = ""
-    var image = ""
+    var imageName = ""
     var isMozzarella = false
     var isHum = false
     var isMushrooms = false
