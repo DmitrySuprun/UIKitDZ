@@ -26,11 +26,7 @@ final class SharingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sharePicker.delegate = self
-        sharePicker.dataSource = self
-        pickerInputTextField.inputView = sharePicker
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditingAction))
-        view.addGestureRecognizer(gestureRecognizer)
+        setup()
     }
     
     // MARK: - IBAction
@@ -44,17 +40,25 @@ final class SharingViewController: UIViewController {
         shareAction(activityItems: [share])
     }
     
-    @IBAction func shareImage(_ sender: Any) {
+    @IBAction func shareImageAction(_ sender: Any) {
         guard let image = UIImage(named: "bagpack") else { return }
         shareAction(activityItems: [image])
     }
     
-    @IBAction func shareTextField(_ sender: Any) {
+    @IBAction func shareTextFieldAction(_ sender: Any) {
         guard let share = shareTextField.text else { return }
         shareAction(activityItems: [share])
     }
     
     // MARK: - Private Methods
+    
+    private func setup() {
+        sharePicker.delegate = self
+        sharePicker.dataSource = self
+        pickerInputTextField.inputView = sharePicker
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditingAction))
+        view.addGestureRecognizer(gestureRecognizer)
+    }
     
     private func shareAction(activityItems: [Any], applicationActivities: [UIActivity]? = nil) {
         let activityViewController = UIActivityViewController(activityItems: activityItems,
@@ -97,7 +101,7 @@ extension SharingViewController: UIPickerViewDataSource {
     }
 }
 
-/// FacebookShare
+/// Sharing throw FaceBook
 class FacebookShare: NSObject, UIActivityItemSource {
     
     var placeholder = "New post"
