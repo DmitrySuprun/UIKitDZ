@@ -11,12 +11,10 @@ import UIKit
 final class PaymentViewController: UIViewController {
     
     // MARK: - Public Properties
-    
     var pizza: Pizza?
     weak var delegate: PopToRootDelegate?
     
     // MARK: - Private Properties
-    
     private lazy var orderLabel = makeLabel(text: "Your order", yCoordinate: 161)
     private lazy var orderDescriptionLabel = makeLabel(text: "Order", yCoordinate: 215)
     private lazy var paymentCashLabel = makeLabel(text: "Payment with cash", yCoordinate: 597)
@@ -26,14 +24,12 @@ final class PaymentViewController: UIViewController {
     private lazy var payButton = makeButton()
     
     // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     // MARK: - Private Methods
-    
     private func setupUI() {
         title = "Payment"
         view.backgroundColor = .white
@@ -92,7 +88,6 @@ final class PaymentViewController: UIViewController {
 }
 
 // MARK: - Factory
-
 private extension PaymentViewController {
     
     func makeLabel(text: String, yCoordinate: Int) -> UILabel {

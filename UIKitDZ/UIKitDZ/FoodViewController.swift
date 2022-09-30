@@ -11,20 +11,17 @@ import UIKit
 final class FoodViewController: UIViewController {
     
     // MARK: - Private Properties
-    
     private lazy var pizzaButton = makeButton(title: "Pizza", yCoordinate: 166)
     private lazy var foodButton = makeButton(title: "Food", yCoordinate: 371)
     private lazy var slotMachineButton = makeButton(title: "Try to win free pizza", yCoordinate: 600)
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     // MARK: - Private Methods
-    
     private func setupUI() {
         title = "Food"
         view.backgroundColor = .white
@@ -59,7 +56,6 @@ final class FoodViewController: UIViewController {
 }
 
 // MARK: - Factory
-
 private extension FoodViewController {
     
     func makeButton(title: String, yCoordinate: Int) -> UIButton {

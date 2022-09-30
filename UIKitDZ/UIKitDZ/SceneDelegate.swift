@@ -7,18 +7,15 @@
 
 import UIKit
 /// SceneDelegate
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - Public Properties
-    
     var window: UIWindow?
     
     // MARK: - Private Properties
-    
     private let productViewController = LoginViewController()
     
     // MARK: - Public Method
-    
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,

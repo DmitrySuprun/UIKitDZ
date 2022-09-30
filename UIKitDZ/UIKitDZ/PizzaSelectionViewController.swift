@@ -11,12 +11,10 @@ import UIKit
 final class PizzaSelectionViewController: UIViewController {
     
     // MARK: - Public Properties
-    
     var pizza: [Pizza] = [Pizza(name: "Margarita", imageName: "Margarita"),
                           Pizza(name: "Pepperoni", imageName: "Pepperoni")]
     
     // MARK: - Private Properties
-    
     private lazy var margaritaImageView = makeImageView(yCoordinate: 166)
     private lazy var pepperoniImageView = makeImageView(yCoordinate: 371)
     private lazy var margaritaLabel = makeLabel(text: "Margarita", yCoordinate: 213)
@@ -26,14 +24,12 @@ final class PizzaSelectionViewController: UIViewController {
     private lazy var feedBackButton = makeFeedBackButton()
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
    
     // MARK: - Private Methods
-    
     private func setupUI() {
         title = "Pizza"
         view.backgroundColor = .white
@@ -87,7 +83,6 @@ final class PizzaSelectionViewController: UIViewController {
 }
 
 // MARK: - Factory
-
 extension PizzaSelectionViewController {
     
     func makeImageView(yCoordinate: Int) -> UIImageView {
@@ -112,11 +107,6 @@ extension PizzaSelectionViewController {
         button.addTarget(self, action: #selector(addIngredientsAction(_:)), for: .touchUpInside)
         return button
     }
-}
-
-// Feature
-
-private extension PizzaSelectionViewController {
     
     func makeFeedBackButton() -> UIButton {
         let button = UIButton(configuration: .filled())

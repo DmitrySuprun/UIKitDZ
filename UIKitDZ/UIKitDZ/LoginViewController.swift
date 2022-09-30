@@ -11,7 +11,6 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     // MARK: - Private properties
-    
     private lazy var logoImageView = makeImage()
     private lazy var emailLabel = makeLabel(text: "Email", yCoordinate: 330)
     private lazy var emailTextField = makeTextField(placeholder: "Enter email", yCoordinate: 363)
@@ -20,14 +19,12 @@ final class LoginViewController: UIViewController {
     private lazy var loginButton = makeButton()
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     // MARK: - Private Methods
-    
     private func setupUI() {
         addView()
         setupTextField()
@@ -67,7 +64,6 @@ final class LoginViewController: UIViewController {
 }
 
 // MARK: - Factory
-
 private extension LoginViewController {
     
     func makeImage() -> UIImageView {

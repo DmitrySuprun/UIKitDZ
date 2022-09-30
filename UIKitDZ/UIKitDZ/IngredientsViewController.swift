@@ -16,11 +16,9 @@ protocol PopToRootDelegate: AnyObject {
 final class IngredientsViewController: UIViewController {
     
     // MARK: - Public Properties
-    
     var pizza: Pizza?
     
     // MARK: - Private Properties
-    
     private lazy var titleLabel = makeLabel(text: pizza?.name ?? "", yCoordinate: 13)
     private lazy var mozzarellaLabel = makeLabel(text: "Mozzarella", yCoordinate: 444)
     private lazy var humSwitchLabel = makeLabel(text: "Hum", yCoordinate: 503)
@@ -35,14 +33,12 @@ final class IngredientsViewController: UIViewController {
     private lazy var infoButton = makeInfoButton()
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     // MARK: - Private Methods
-    
     private func setupUI() {
         view.backgroundColor = .white
         addView()
@@ -96,7 +92,6 @@ final class IngredientsViewController: UIViewController {
 }
 
 // MARK: - Factory
-
 private extension IngredientsViewController {
     
     func makeLabel(text: String, yCoordinate: Int) -> UILabel {

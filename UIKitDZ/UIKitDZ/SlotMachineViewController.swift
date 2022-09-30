@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 /// SlotMachine for trying to win free pizza
 class SlotMachineViewController: UIViewController {
     
