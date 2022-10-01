@@ -7,23 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D56234AA28E5FB9900DD6BCB /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56234A928E5FB9900DD6BCB /* Pizza.swift */; };
+		D56234AC28E6565800DD6BCB /* CaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56234AB28E6565800DD6BCB /* CaloriesViewController.swift */; };
+		D56234AE28E65F6200DD6BCB /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56234AD28E65F6200DD6BCB /* FeedBackViewController.swift */; };
+		D56234B028E6C5D200DD6BCB /* SlotMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56234AF28E6C5D200DD6BCB /* SlotMachineViewController.swift */; };
 		D593F70A28DB087200ABEFE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593F70928DB087200ABEFE8 /* AppDelegate.swift */; };
 		D593F70C28DB087200ABEFE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593F70B28DB087200ABEFE8 /* SceneDelegate.swift */; };
-		D593F70E28DB087200ABEFE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593F70D28DB087200ABEFE8 /* ViewController.swift */; };
+		D593F70E28DB087200ABEFE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593F70D28DB087200ABEFE8 /* LoginViewController.swift */; };
 		D593F71128DB087200ABEFE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D593F70F28DB087200ABEFE8 /* Main.storyboard */; };
 		D593F71328DB087400ABEFE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D593F71228DB087400ABEFE8 /* Assets.xcassets */; };
 		D593F71628DB087400ABEFE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D593F71428DB087400ABEFE8 /* LaunchScreen.storyboard */; };
+		D5C752F428E4E72900C8A60F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C752F328E4E72900C8A60F /* Extension.swift */; };
+		D5C752F628E4ED3000C8A60F /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C752F528E4ED3000C8A60F /* FoodViewController.swift */; };
+		D5C752F828E4FBF800C8A60F /* PizzaSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C752F728E4FBF800C8A60F /* PizzaSelectionViewController.swift */; };
+		D5C752FA28E5080D00C8A60F /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C752F928E5080D00C8A60F /* IngredientsViewController.swift */; };
+		D5C752FC28E50DA800C8A60F /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C752FB28E50DA800C8A60F /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D56234A928E5FB9900DD6BCB /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		D56234AB28E6565800DD6BCB /* CaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewController.swift; sourceTree = "<group>"; };
+		D56234AD28E65F6200DD6BCB /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
+		D56234AF28E6C5D200DD6BCB /* SlotMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotMachineViewController.swift; sourceTree = "<group>"; };
 		D593F70628DB087200ABEFE8 /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D593F70928DB087200ABEFE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D593F70B28DB087200ABEFE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D593F70D28DB087200ABEFE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D593F70D28DB087200ABEFE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D593F71028DB087200ABEFE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D593F71228DB087400ABEFE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D593F71528DB087400ABEFE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D593F71728DB087400ABEFE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5C752F328E4E72900C8A60F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D5C752F528E4ED3000C8A60F /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		D5C752F728E4FBF800C8A60F /* PizzaSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaSelectionViewController.swift; sourceTree = "<group>"; };
+		D5C752F928E5080D00C8A60F /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		D5C752FB28E50DA800C8A60F /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +76,20 @@
 			children = (
 				D593F70928DB087200ABEFE8 /* AppDelegate.swift */,
 				D593F70B28DB087200ABEFE8 /* SceneDelegate.swift */,
-				D593F70D28DB087200ABEFE8 /* ViewController.swift */,
+				D593F70D28DB087200ABEFE8 /* LoginViewController.swift */,
+				D5C752F528E4ED3000C8A60F /* FoodViewController.swift */,
+				D56234A928E5FB9900DD6BCB /* Pizza.swift */,
+				D5C752F728E4FBF800C8A60F /* PizzaSelectionViewController.swift */,
+				D5C752F928E5080D00C8A60F /* IngredientsViewController.swift */,
+				D5C752FB28E50DA800C8A60F /* PaymentViewController.swift */,
+				D5C752F328E4E72900C8A60F /* Extension.swift */,
 				D593F70F28DB087200ABEFE8 /* Main.storyboard */,
 				D593F71228DB087400ABEFE8 /* Assets.xcassets */,
 				D593F71428DB087400ABEFE8 /* LaunchScreen.storyboard */,
 				D593F71728DB087400ABEFE8 /* Info.plist */,
+				D56234AD28E65F6200DD6BCB /* FeedBackViewController.swift */,
+				D56234AB28E6565800DD6BCB /* CaloriesViewController.swift */,
+				D56234AF28E6C5D200DD6BCB /* SlotMachineViewController.swift */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -161,9 +188,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D593F70E28DB087200ABEFE8 /* ViewController.swift in Sources */,
+				D593F70E28DB087200ABEFE8 /* LoginViewController.swift in Sources */,
+				D5C752F628E4ED3000C8A60F /* FoodViewController.swift in Sources */,
+				D56234AA28E5FB9900DD6BCB /* Pizza.swift in Sources */,
 				D593F70A28DB087200ABEFE8 /* AppDelegate.swift in Sources */,
+				D56234B028E6C5D200DD6BCB /* SlotMachineViewController.swift in Sources */,
+				D5C752FC28E50DA800C8A60F /* PaymentViewController.swift in Sources */,
 				D593F70C28DB087200ABEFE8 /* SceneDelegate.swift in Sources */,
+				D5C752FA28E5080D00C8A60F /* IngredientsViewController.swift in Sources */,
+				D56234AE28E65F6200DD6BCB /* FeedBackViewController.swift in Sources */,
+				D5C752F828E4FBF800C8A60F /* PizzaSelectionViewController.swift in Sources */,
+				D56234AC28E6565800DD6BCB /* CaloriesViewController.swift in Sources */,
+				D5C752F428E4E72900C8A60F /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
