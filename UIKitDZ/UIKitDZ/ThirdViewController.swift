@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// ThirdViewController
+/// ThirdViewController test TabBarController
 final class ThirdViewController: UIViewController {
 
     // MARK: - LifeCycle

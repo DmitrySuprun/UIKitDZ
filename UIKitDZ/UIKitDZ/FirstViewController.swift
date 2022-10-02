@@ -7,14 +7,19 @@
 
 import UIKit
 
-/// FirstViewController
+/// FirstViewController test TabBarController
 final class FirstViewController: UIViewController {
-        
+    
     // MARK: - Private Properties
     private lazy var mutatingLabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 150, height: 200)
         label.text = "Text"
+        label.shadowColor = .brown
+        label.shadowOffset = CGSize(width: 3, height: 3)
+        label.layer.shadowOffset = CGSize(width: 5, height: 5)
+        label.layer.shadowRadius = 2
+        label.layer.shadowOpacity = 2
         label.textAlignment = .center
         label.backgroundColor = .systemGray
         return label
@@ -29,51 +34,51 @@ final class FirstViewController: UIViewController {
         return slider
     }()
     
-    private lazy var changeColorPickerView = {
+    private lazy var changeColorLinesPickerView = {
         let picker = UIPickerView()
         picker.frame = CGRect(x: 90, y: 120, width: 200, height: 200)
         return picker
     }()
     
-    private lazy var addButton = {
-        let button = UIButton(configuration: .filled())
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
-        button.frame = CGRect(x: 300, y: 150, width: 25, height: 25)
-        button.addTarget(self, action: #selector(textInputAction), for: .touchUpInside)
-        return button
-    }()
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupPicker()
     }
     
     // MARK: - Private Methods
     private func setupUI() {
-        view.addSubview(mutatingLabel)
-        mutatingLabel.center = view.center
-        
-        view.addSubview(changeSizeSlider)
-        let minSize = mutatingLabel.font.pointSize
-        changeSizeSlider.value = Float(minSize)
-        
-        changeSizeSlider.center = view.center
-        changeSizeSlider.center.y += 150
-        
-        view.addSubview(changeColorPickerView)
-        view.addSubview(addButton)
-        
+        addViews()
+        setupPicker()
+        setupSlider()
+        setupLabel()
+
         title = "First"
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
-                                                                                  target: nil,
-                                                                                  action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(textInputAction))
+    }
+    
+    private func addViews() {
+        view.addSubview(mutatingLabel)
+        view.addSubview(changeSizeSlider)
+        view.addSubview(changeColorLinesPickerView)
     }
     
     private func setupPicker() {
-        changeColorPickerView.dataSource = self
-        changeColorPickerView.delegate = self
+        changeColorLinesPickerView.dataSource = self
+        changeColorLinesPickerView.delegate = self
+    }
+    
+    private func setupSlider() {
+        let minSize = mutatingLabel.font.pointSize
+        changeSizeSlider.value = Float(minSize)
+        changeSizeSlider.center = view.center
+        changeSizeSlider.center.y += 150
+    }
+    
+    private func setupLabel() {
+        mutatingLabel.center = view.center
     }
     
     @objc private func changeFontSizeAction(_ sender: UISlider) {
@@ -93,7 +98,7 @@ final class FirstViewController: UIViewController {
     }
 }
 
-// Extension UIPickerViewDelegate
+// MARK: - Extension UIPickerViewDelegate
 extension FirstViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
@@ -130,7 +135,7 @@ extension FirstViewController: UIPickerViewDelegate {
     }
 }
 
-// Extension UIPickerViewDataSource
+// MARK: - Extension UIPickerViewDataSource
 extension FirstViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         2

@@ -13,11 +13,16 @@ final class StartTabBarController: UITabBarController {
     // MARK: - Private Properties
     private let firstViewController = FirstViewController()
     private let firstTabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
+    private var firstNavigationController = UINavigationController()
+    
     private let secondViewController = SecondViewController()
     private let secondTabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 2)
+    private var secondNavigationController = UINavigationController()
+    
     private let thirdViewController = ThirdViewController()
     private let thirdTabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 3)
-    
+    private var thirdNavigationController = UINavigationController()
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +36,14 @@ final class StartTabBarController: UITabBarController {
     }
     
     private func addViewControllers() {
+        firstNavigationController = UINavigationController(rootViewController: firstViewController)
+        secondNavigationController = UINavigationController(rootViewController: secondViewController)
+        thirdNavigationController = UINavigationController(rootViewController: thirdViewController)
+        
         firstViewController.tabBarItem = firstTabBarItem
         secondViewController.tabBarItem = secondTabBarItem
         thirdViewController.tabBarItem = thirdTabBarItem
-        viewControllers = [firstViewController, secondViewController, thirdViewController]
+        
+        viewControllers = [firstNavigationController, secondNavigationController, thirdNavigationController]
     }
 }

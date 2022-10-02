@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// SecondViewController
+/// SecondViewController test TabBarController
 final class SecondViewController: UIViewController {
     
     // MARK: - LifeCycle
