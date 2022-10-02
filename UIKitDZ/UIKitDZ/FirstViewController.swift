@@ -15,6 +15,7 @@ final class FirstViewController: UIViewController {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 150, height: 200)
         label.text = "Text"
+        label.lineBreakMode = .byWordWrapping
         label.shadowColor = .brown
         label.shadowOffset = CGSize(width: 3, height: 3)
         label.layer.shadowOffset = CGSize(width: 5, height: 5)
