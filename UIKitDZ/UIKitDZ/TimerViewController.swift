@@ -26,14 +26,14 @@ final class TimerViewController: UIViewController {
         setupUI()
     }
     
-    // MARK: - IBAction
+    // MARK: - Private IBAction
     @IBAction private func startTimerAction(_ sender: Any) {
         let hours = TimeInterval(countDownPicker.selectedRow(inComponent: 0))
         let min = TimeInterval(countDownPicker.selectedRow(inComponent: 1))
         let sec = TimeInterval(countDownPicker.selectedRow(inComponent: 2))
         let timeInterval = (hours * 60 * 60) + (min * 60) + sec
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateUI),
+                                               selector: #selector(updateUIAction),
                                                name: Notification.Name("timerDateChanged"),
                                                object: nil)
         countDownTimer.startTimer(timeInterval)
@@ -44,6 +44,13 @@ final class TimerViewController: UIViewController {
     @IBAction private func stopTimerAction(_ sender: Any) {
         countDownTimer.stopTimer()
         viewsIsHiddenToggle()
+    }
+    
+    // MARK: - Objc Private Methods
+    @objc private func updateUIAction() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
+        timerFaceButton.setTitle(formatter.string(from: countDownTimer.startDate), for: .normal)
     }
     
     // MARK: - Private Methods
@@ -63,12 +70,6 @@ final class TimerViewController: UIViewController {
         hoursLabel.isHidden.toggle()
         minLabel.isHidden.toggle()
         secLabel.isHidden.toggle()
-    }
-    
-    @objc private func updateUI() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        timerFaceButton.setTitle(formatter.string(from: countDownTimer.startDate), for: .normal)
     }
     
     // MARK: - Stroke Animation

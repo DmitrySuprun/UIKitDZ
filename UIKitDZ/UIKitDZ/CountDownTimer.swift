@@ -16,6 +16,15 @@ final class CountDownTimer {
     var finishDate = Date()
     var isFinished = false
     var timer = Timer()
+    
+    // MARK: - Objc Properties
+    @objc func updateCountDownValue() {
+        NotificationCenter.default.post(Notification(name: Notification.Name("timerDateChanged")))
+        if startDate == finishDate {
+            stopTimer()
+        }
+        startDate -= timeInterval
+    }
 
     // MARK: - Private Properties
     
@@ -31,15 +40,5 @@ final class CountDownTimer {
     
     func stopTimer() {
         timer.invalidate()
-    }
-    
-    @objc func updateCountDownValue() {
-        NotificationCenter.default.post(Notification(name: Notification.Name("timerDateChanged")))
-        if startDate == finishDate {
-            print("End")
-            stopTimer()
-        }
-        startDate -= timeInterval
-        print(startDate)
     }
 }
