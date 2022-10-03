@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DownloadViewController.swift
 //  UIKitDZ
 //
 //  Created by Дмитрий Супрун on 21.09.22.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-/// FirstViewController test TabBarController
-final class FirstViewController: UIViewController {
+/// DownloadViewController test TabBarController
+final class DownloadViewController: UIViewController {
     
     // MARK: - Private Properties
     private lazy var mutatingLabel = {
@@ -100,7 +100,7 @@ final class FirstViewController: UIViewController {
 }
 
 // MARK: - Extension UIPickerViewDelegate
-extension FirstViewController: UIPickerViewDelegate {
+extension DownloadViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
@@ -137,7 +137,7 @@ extension FirstViewController: UIPickerViewDelegate {
 }
 
 // MARK: - Extension UIPickerViewDataSource
-extension FirstViewController: UIPickerViewDataSource {
+extension DownloadViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         2
     }

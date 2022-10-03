@@ -11,15 +11,15 @@ import UIKit
 final class StartTabBarController: UITabBarController {
     
     // MARK: - Private Properties
-    private let firstViewController = FirstViewController()
+    private let firstViewController = DownloadViewController()
     private let firstTabBarItem = UITabBarItem(tabBarSystemItem: .downloads, tag: 1)
     private var firstNavigationController = UINavigationController()
     
-    private let secondViewController = SecondViewController()
+    private let secondViewController = FeatureViewController()
     private let secondTabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 2)
     private var secondNavigationController = UINavigationController()
     
-    private let thirdViewController = ThirdViewController()
+    private let thirdViewController = HistoryViewController()
     private let thirdTabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 3)
     private var thirdNavigationController = UINavigationController()
 
