@@ -9,7 +9,6 @@ import UIKit
 
 /// Main controller. Navigation in application tabs
 class ReaderTabBarViewController: UITabBarController {
-    
     // MARK: - Private Properties
     private let readingNowViewController = ReadingNowViewController()
     private let readingNowTabBarItem = UITabBarItem(title: "Reading Now",
