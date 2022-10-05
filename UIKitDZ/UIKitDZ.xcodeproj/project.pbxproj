@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D58A945828EB64640038B0AC /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A945728EB64640038B0AC /* GreetingViewController.swift */; };
 		D58A945D28EB69FD0038B0AC /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A945C28EB69FD0038B0AC /* SignUPViewController.swift */; };
 		D58A947328ED0A0B0038B0AC /* DriftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A947228ED0A0B0038B0AC /* DriftViewController.swift */; };
 		D58A947528ED16250038B0AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A947428ED16250038B0AC /* LoginViewController.swift */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D58A945728EB64640038B0AC /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		D58A945C28EB69FD0038B0AC /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
 		D58A947228ED0A0B0038B0AC /* DriftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftViewController.swift; sourceTree = "<group>"; };
 		D58A947428ED16250038B0AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 				D58A947428ED16250038B0AC /* LoginViewController.swift */,
 				D58A945C28EB69FD0038B0AC /* SignUPViewController.swift */,
 				D58A947228ED0A0B0038B0AC /* DriftViewController.swift */,
-				D58A945728EB64640038B0AC /* GreetingViewController.swift */,
 				D593F70F28DB087200ABEFE8 /* Main.storyboard */,
 				D593F71228DB087400ABEFE8 /* Assets.xcassets */,
 				D593F71428DB087400ABEFE8 /* LaunchScreen.storyboard */,
@@ -174,7 +171,6 @@
 				D593F70A28DB087200ABEFE8 /* AppDelegate.swift in Sources */,
 				D58A947328ED0A0B0038B0AC /* DriftViewController.swift in Sources */,
 				D593F70C28DB087200ABEFE8 /* SceneDelegate.swift in Sources */,
-				D58A945828EB64640038B0AC /* GreetingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

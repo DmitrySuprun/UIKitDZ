@@ -7,6 +7,16 @@
 
 import UIKit
 
+// MARK: - Constants
+private extension LoginViewController {
+    enum Constant {
+        static let alertWrongEmailMessage = "Wrong email"
+        static let alertWrongPasswordMessage = "Wrong password"
+        static let alertTryAgainMessage = "Try again"
+        static let alertOkMessage = "Ok"
+    }
+}
+
 /// Checking Login
 final class LoginViewController: UIViewController {
     // MARK: - IBAction
@@ -21,10 +31,10 @@ final class LoginViewController: UIViewController {
     // MARK: - Public Properties
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let password = UserDefaults.standard.string(forKey: loginTextField.text ?? "") else {
-            alertAction(text: "Wrong email")
+            alertAction(text: Constant.alertWrongEmailMessage)
             return false }
         guard password == passwordTextField.text else {
-            alertAction(text: "Wrong password")
+            alertAction(text: Constant.alertWrongPasswordMessage)
             return false }
         return true
     }
@@ -32,9 +42,9 @@ final class LoginViewController: UIViewController {
     // MARK: - Private Properties
     private func alertAction(text: String) {
         let alertController = UIAlertController(title: text,
-                                                message: "Try again",
+                                                message: Constant.alertTryAgainMessage,
                                                 preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "ok", style: .default)
+        let okAction = UIAlertAction(title: Constant.alertOkMessage, style: .default)
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }

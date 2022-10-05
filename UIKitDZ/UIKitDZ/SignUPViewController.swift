@@ -7,6 +7,15 @@
 
 import UIKit
 
+// MARK: - Constants
+private extension SignUPViewController {
+    enum Constant {
+        static let alertTryAgainMessage = "Try again"
+        static let alertOkMessage = "Ok"
+        static let alreadyExistText = "already exist"
+    }
+}
+
 /// Checking login/password
 final class SignUPViewController: UIViewController {
     // MARK: - IBOutlets
@@ -26,7 +35,7 @@ final class SignUPViewController: UIViewController {
         guard let name = nameTextField.text else { return false }
         guard let password = passwordTextField.text else { return false }
         if let user = UserDefaults.standard.string(forKey: name) {
-            alertAction(text: "\(user) already exist")
+            alertAction(text: "\(user) \(Constant.alreadyExistText)")
             return false
         }
         UserDefaults.standard.set(password, forKey: name)
@@ -52,21 +61,21 @@ final class SignUPViewController: UIViewController {
     }
     
     private func addNotification() {
-//        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
-//                                               object: nil, queue: nil) {_ in
-//            self.view.frame.origin.y -= 50
-//        }
-//        NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification,
-//                                               object: nil, queue: nil) {_ in
-//            self.view.frame.origin.y += 50
-//        }
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
+                                               object: nil, queue: nil) {_ in
+            self.view.frame.origin.y -= 20
+        }
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification,
+                                               object: nil, queue: nil) {_ in
+            self.view.frame.origin.y = 0
+        }
     }
     
     private func alertAction(text: String) {
         let alertController = UIAlertController(title: text,
-                                                message: "Try again",
+                                                message: Constant.alertTryAgainMessage,
                                                 preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "ok", style: .default)
+        let okAction = UIAlertAction(title: Constant.alertOkMessage, style: .default)
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }

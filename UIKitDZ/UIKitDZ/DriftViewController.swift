@@ -7,6 +7,18 @@
 
 import UIKit
 
+// MARK: - Constants
+private extension DriftViewController {
+    enum Constant {
+        static let alertCancelMessage = "Cancel"
+        static let driftingOnText = "h. drifting\n on"
+        static let orderTitle = "Order"
+        static let nissanText = "370Z"
+        static let bmwText = "BMW"
+        static let mustangText =  "Mustang"
+    }
+}
+
 /// Drifting order
 final class DriftViewController: UIViewController {
     // MARK: - IBOutlet
@@ -22,14 +34,17 @@ final class DriftViewController: UIViewController {
     }
     
     // MARK: - IBAction
-    @IBAction func orderButton(_ sender: Any) {
-        var message = "\(hoursCountLabel.text ?? "") h. drifting\n on \(driftDatePicker.date)\n"
+    @IBAction func orderButtonAction(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.YY"
+        let driftingDate = formatter.string(from: driftDatePicker.date)
+        var message = "\(hoursCountLabel.text ?? "") \(Constant.driftingOnText) \(driftingDate)\n"
         message += "\(carChoiceSegmentControl.titleForSegment(at: carChoiceSegmentControl.selectedSegmentIndex) ?? "")"
-        let alertController = UIAlertController(title: "Order", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Order", style: .default) {_ in
+        let alertController = UIAlertController(title: Constant.orderTitle, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: Constant.orderTitle, style: .default) {_ in
             self.dismiss(animated: true)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        let cancelAction = UIAlertAction(title: Constant.alertCancelMessage, style: .destructive)
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
@@ -37,9 +52,9 @@ final class DriftViewController: UIViewController {
     
     @IBAction private func carChoiceSegmentControlAction(_ sender: Any) {
         switch carChoiceSegmentControl.selectedSegmentIndex {
-        case 0: carImageView.image = UIImage(named: "370Z")
-        case 1: carImageView.image = UIImage(named: "BMW")
-        case 2: carImageView.image = UIImage(named: "Mustang")
+        case 0: carImageView.image = UIImage(named: Constant.nissanText)
+        case 1: carImageView.image = UIImage(named: Constant.bmwText)
+        case 2: carImageView.image = UIImage(named: Constant.mustangText)
         default: return
         }
     }
