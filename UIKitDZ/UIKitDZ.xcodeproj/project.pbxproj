@@ -68,9 +68,9 @@
 		D593F70828DB087200ABEFE8 /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
+				D58A946428EC5EC70038B0AC /* ReaderTabBarViewController.swift */,
 				D58A947028EC6F890038B0AC /* Book.swift */,
 				D58A946E28EC679A0038B0AC /* ReaderViewController.swift */,
-				D58A946428EC5EC70038B0AC /* ReaderTabBarViewController.swift */,
 				D58A946628EC602E0038B0AC /* ReadingNowViewController.swift */,
 				D58A946A28EC60680038B0AC /* BookStoreViewController.swift */,
 				D58A946828EC60510038B0AC /* LibraryViewController.swift */,

@@ -8,8 +8,7 @@
 import UIKit
 
 // Find and buy books
-final class BookStoreViewController: UIViewController {
-    
+final class BookStoreViewController: UIViewController {    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

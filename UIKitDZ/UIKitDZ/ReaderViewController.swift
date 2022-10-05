@@ -153,10 +153,9 @@ final class ReaderViewController: UIViewController {
         overrideUserInterfaceStyle = .dark
     }
     
-    // MARK: - Private Properties
+    // MARK: - Private Methods
     private func setupUI() {
         addViews()
-        setupTextFieldAction()
         fontTextField.inputView = fontPickerView
         fontPickerView.delegate = self
         fontPickerView.dataSource = self
@@ -164,7 +163,6 @@ final class ReaderViewController: UIViewController {
     
     private func addViews() {
         view.addSubview(bookTextView)
-        bookTextView.frame = view.frame
         view.addSubview(settingsView)
         view.addSubview(settingsButton)
         settingsView.addSubview(fontSlider)
@@ -178,19 +176,15 @@ final class ReaderViewController: UIViewController {
         settingsView.addSubview(darkModeSwitch)
         settingsView.addSubview(fontTextField)
     }
-    
-    private func setupTextFieldAction() {
-        
-    }
 }
 
 // MARK: - UIPickerViewDelegate
 extension ReaderViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch row {
-        case 0: return "Font1"
-        case 1: return "Font2"
-        default: return "Error"
+        case 0: return "KannadaSangamMN"
+        case 1: return "SnellRoundhand"
+        default: return "ArialMT"
         }
     }
     

@@ -6,16 +6,23 @@
 //
 
 import UIKit
+// MARK: - Constant
+private extension ReadingNowViewController {
+    enum Constant {
+        static let titleButton = "Read"
+    }
+}
 
 // Recently read and recommendation
-class ReadingNowViewController: UIViewController {
+final class ReadingNowViewController: UIViewController {
     
     // MARK: - Private Properties
     private lazy var newBookButton = {
         let button = UIButton(configuration: .filled())
-        button.setTitle("Read", for: .normal)
+        button.setTitle(Constant.titleButton, for: .normal)
         button.addTarget(self, action: #selector(pushBoolAction), for: .touchUpInside)
         button.sizeToFit()
+        button.center = view.center
         return button
     }()
     
@@ -28,7 +35,6 @@ class ReadingNowViewController: UIViewController {
     // MARK: - Private Properties
     private func setupUI() {
         addViews()
-        newBookButton.center = view.center
     }
     
     private func addViews() {

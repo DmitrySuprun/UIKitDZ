@@ -8,8 +8,7 @@
 import UIKit
 
 // User library
-final class LibraryViewController: UIViewController {
-    
+final class LibraryViewController: UIViewController {    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
