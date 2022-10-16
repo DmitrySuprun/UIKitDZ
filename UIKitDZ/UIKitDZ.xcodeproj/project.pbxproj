@@ -44,7 +44,6 @@
 		D593F6FD28DB087200ABEFE8 = {
 			isa = PBXGroup;
 			children = (
-				D538860828FBE8470068DF85 /* StackViewController.swift */,
 				D593F70828DB087200ABEFE8 /* UIKitDZ */,
 				D593F70728DB087200ABEFE8 /* Products */,
 			);
@@ -65,6 +64,7 @@
 				D593F70B28DB087200ABEFE8 /* SceneDelegate.swift */,
 				D562E6C928FAE8760022F271 /* NSLayoutConstraintsViewController.swift */,
 				D593F70D28DB087200ABEFE8 /* NSLayoutAnchorViewController.swift */,
+				D538860828FBE8470068DF85 /* StackViewController.swift */,
 				D593F70F28DB087200ABEFE8 /* Main.storyboard */,
 				D593F71228DB087400ABEFE8 /* Assets.xcassets */,
 				D593F71428DB087400ABEFE8 /* LaunchScreen.storyboard */,

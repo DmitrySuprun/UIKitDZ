@@ -34,7 +34,6 @@ final class NSLayoutConstraintsViewController: UIViewController {
     }
     
     private func addConstraints() {
-        view.translatesAutoresizingMaskIntoConstraints = false
         redView.translatesAutoresizingMaskIntoConstraints = false
         yellowView.translatesAutoresizingMaskIntoConstraints = false
         greenView.translatesAutoresizingMaskIntoConstraints = false

@@ -33,8 +33,8 @@ final class NSLayoutAnchorViewController: UIViewController {
         view.addSubview(yellowView)
         view.addSubview(greenView)
     }
+    
     private func addConstraints() {
-        view.translatesAutoresizingMaskIntoConstraints = false
         yellowView.translatesAutoresizingMaskIntoConstraints = false
         redView.translatesAutoresizingMaskIntoConstraints = false
         greenView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,8 +49,6 @@ final class NSLayoutAnchorViewController: UIViewController {
         redView.centerXAnchor.constraint(equalTo: yellowView.centerXAnchor).isActive = true
         redView.centerYAnchor.anchorWithOffset(to: yellowView.centerYAnchor)
             .constraint(equalTo: yellowView.heightAnchor, multiplier: 1.1).isActive = true
-        //        redView.centerYAnchor.constraint(equalToSystemSpacingBelow: yellowView.centerYAnchor,
-        //                                         multiplier: 1).isActive = true
         redView.heightAnchor.constraint(equalTo: yellowView.heightAnchor).isActive = true
         
         greenView.heightAnchor.constraint(equalTo: greenView.widthAnchor).isActive = true
